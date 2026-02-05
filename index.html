@@ -1,198 +1,293 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QKELECTRONIC - DIY Điện Tử</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#111;
+    color:white;
+}
+
+/* ===== HEADER ===== */
+header{
+    background:#000;
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#ff4d4d;
+}
+
+/* ===== BANNER APPLE FADE ===== */
+.banner{
+    position:relative;
+    height:85vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.bg{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    transition:opacity 1.5s ease-in-out;
+}
+
+.bg1{ z-index:0; }
+.bg2{ z-index:0; opacity:0; }
+
+.overlay{
+    position:relative;
+    z-index:2;
+    background:rgba(0,0,0,0.45);
+    padding:50px;
+    border-radius:10px;
+}
+
+.banner h1{
+    font-size:65px;
+    letter-spacing:5px;
+}
+
+.line{
+    width:250px;
+    height:5px;
+    background:#ff4d4d;
+    margin:15px auto;
+}
+
+.banner p{
+    margin:20px 0;
+    font-size:18px;
+}
+
+.btn{
+    padding:12px 30px;
+    background:#ff4d4d;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#ff1a1a;
+}
+
+/* ===== PRODUCTS ===== */
+.products{
+    padding:60px 10%;
+    text-align:center;
+}
+
+.products h2{
+    margin-bottom:40px;
+    font-size:30px;
+}
+
+.product-grid{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:#222;
+    padding:20px;
+    border-radius:10px;
+    width:250px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:scale(1.05);
+}
+
+.card img{
+    width:100%;
+    border-radius:5px;
+}
+
+.card h3{
+    margin:15px 0 5px;
+}
+
+.card p{
+    color:#ff4d4d;
+    font-weight:bold;
+}
+
+.card button{
+    margin-top:10px;
+    padding:8px 15px;
+    border:none;
+    background:#ff4d4d;
+    color:white;
+    cursor:pointer;
+    border-radius:5px;
+    transition:0.3s;
+}
+
+.card button:hover{
+    background:#ff1a1a;
+}
+
+/* ===== FOOTER ===== */
+footer{
+    background:#000;
+    text-align:center;
+    padding:20px;
+    margin-top:50px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+    header{
+        flex-direction:column;
+        gap:10px;
     }
-    header {
-      background-color: #333;
-      color: white;
-      padding: 10px 0;
-      text-align: center;
+
+    .banner h1{
+        font-size:40px;
     }
-    nav {
-      background-color: #444;
-      overflow: hidden;
-    }
-    nav a {
-      color: white;
-      padding: 14px 20px;
-      text-decoration: none;
-      float: left;
-    }
-    nav a:hover {
-      background-color: #ddd;
-      color: black;
-    }
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      padding: 20px;
-    }
-    .product-card {
-      background-color: white;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      text-align: center;
-    }
-    .product-card img {
-      width: 100%;
-      height: auto;
-    }
-    .product-card h3 {
-      margin: 10px 0;
-    }
-    .product-card p {
-      color: #e91e63;
-      font-weight: bold;
-    }
-    .buy-button {
-      background-color: #28a745;
-      color: white;
-      padding: 10px;
-      text-decoration: none;
-      border-radius: 0 0 5px 5px;
-      display: block;
-    }
-    .buy-button:hover {
-      background-color: #218838;
-    }
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 10px 0;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
-    }
-  </style>
+}
+</style>
 </head>
+
 <body>
 
 <header>
-  <h1>GIA KY BEUTI</h1>
-  <header>
-  <marquee behavior="scroll" direction="left" scrollamount="6" style="background-color: #e91e63; color: white; padding: 10px; font-weight: bold;">
-    🎉 Khuyến mãi lớn trong tháng 5 - Giảm giá đến 30%! Liên hệ: 0123456789 🎉
-  </marquee>
+    <div class="logo">QKELECTRONIC</div>
+    <nav>
+        <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Sản phẩm</a></li>
+            <li><a href="#">Giỏ hàng</a></li>
+            <li><a href="#">Liên hệ</a></li>
+        </ul>
+    </nav>
 </header>
-</header>
 
-<nav>
-  <a href="#home">Trang Chủ</a>
-  <a href="#products">Sản Phẩm</a>
-  <a href="#contact">Liên Hệ</a>
-</nav>
+<!-- BANNER -->
+<section class="banner">
+    <div class="bg bg1"></div>
+    <div class="bg bg2"></div>
 
-<section id="products" class="product-grid">
-  <!-- Sản phẩm 1 -->
-  <div class="product-card">
-    <img src="img/aliga.jpg" alt="Aliga">
-    <h3>Aliga</h3>
-    <p>1.500.000đ</p>
-    <a href="https://zalo.me/0123456789" class="buy-button">Mua ngay</a>
-  </div>
-  <!-- Sản phẩm 2 -->
-  <div class="product-card">
-    <img src="img/amieyes.jpg" alt="amieyes">
-    <h3>amieyes</h3>
-    <p>800.000đ</p>
-    <a href="https://zalo.me/0123456789" class="buy-button">Mua ngay</a>
-  </div>
-  <!-- Thêm các sản phẩm khác ở đây -->
- <!-- Sản phẩm 2 -->
-  <div class="product-card">
-    <img src="img/Aqua Aribell pn.jpg" alt="Sản phẩm 2">
-    <h3>Aqua Aribell pn</h3>
-    <p>800.000đ</p>
-    <a href="https://zalo.me/0123456789" class="buy-button">Mua ngay</a>
-  </div>
-   <!-- Sản phẩm 2 -->
-  <div class="product-card">
-    <img src="img/asce.jpg" alt="Sản phẩm 2">
-    <h3>asce</h3>
-    <p>800.000đ</p>
-    <a href="https://zalo.me/0123456789" class="buy-button">Mua ngay</a>
-  </div>
-   <!-- Sản phẩm 2 -->
-  <div class="product-card">
-    <img src="img/ATIERE.jpg" alt="Sản phẩm 2">
-    <h3>ATIERE</h3>
-    <p>800.000đ</p>
-    <a href="https://zalo.me/0123456789" class="buy-button">Mua ngay</a>
-  </div>
-   <!-- Sản phẩm 2 -->
-  <div class="product-card">
-    <img src="img/bienox.jpg" alt="Sản phẩm 2">
-    <h3>bienox</h3>
-    <p>800.000đ</p>
-    <a href="https://zalo.me/0123456789" class="buy-button">Mua ngay</a>
-  </div>
-   <!-- Sản phẩm 2 -->
-  <div class="product-card">
-    <img src="img/botulax.jpg" alt="Sản phẩm 2">
-    <h3>botulax</h3>
-    <p>800.000đ</p>
-    <a href="https://zalo.me/0123456789" class="buy-button">Mua ngay</a>
-  </div>
-   <!-- Sản phẩm 2 -->
-  <div class="product-card">
-    <img src="img/cebela.jpg" alt="Sản phẩm 2">
-    <h3>cebela</h3>
-    <p>800.000đ</p>
-    <a href="https://zalo.me/0123456789" class="buy-button">Mua ngay</a>
-  </div>
-   <!-- Sản phẩm 2 -->
-  <div class="product-card">
-    <img src="img/celosom.jpg" alt="Sản phẩm 2">
-    <h3>celosom</h3>
-    <p>800.000đ</p>
-    <a href="https://zalo.me/0123456789" class="buy-button">Mua ngay</a>
-  </div>
-   <!-- Sản phẩm 2 -->
-  <div class="product-card">
-    <img src="img/ceres.jpg" alt="Sản phẩm 2">
-    <h3>ceres</h3>
-    <p>800.000đ</p>
-    <a href="https://zalo.me/0123456789" class="buy-button">Mua ngay</a>
-  </div>
-   <!-- Sản phẩm 2 -->
-  <div class="product-card">
-    <img src="img/chaeum.jpg" alt="Sản phẩm 2">
-    <h3>chaeum</h3>
-    <p>800.000đ</p>
-    <a href="https://zalo.me/0123456789" class="buy-button">Mua ngay</a>
-  </div>
-     <!-- Sản phẩm 2 -->
-
-     
+    <div class="overlay">
+        <h1>QKELECTRONIC</h1>
+        <div class="line"></div>
+        <p>Chuyên DIY Điện Tử - REPAIR - MUSIC - DISPLAY - PC - IoT</p>
+        <a href="#" class="btn">LIÊN HỆ</a>
+    </div>
 </section>
 
+<!-- PRODUCTS -->
+<section class="products">
+    <h2>SẢN PHẨM NỔI BẬT</h2>
 
-<section id="home" class="product-grid"></section>
+    <div class="product-grid">
+        <div class="card">
+            <img src="https://via.placeholder.com/250">
+            <h3>ESP32 DevKit</h3>
+            <p>120.000đ</p>
+            <button>Thêm vào giỏ</button>
+        </div>
 
+        <div class="card">
+            <img src="https://via.placeholder.com/250">
+            <h3>Module Relay 5V</h3>
+            <p>15.000đ</p>
+            <button>Thêm vào giỏ</button>
+        </div>
 
-
-</section>
-
-
-<section id="contact" class="product-grid"></section>
-
+        <div class="card">
+            <img src="https://via.placeholder.com/250">
+            <h3>Cảm biến DHT22</h3>
+            <p>85.000đ</p>
+            <button>Thêm vào giỏ</button>
+        </div>
+    </div>
 </section>
 
 <footer>
-  <p>&copy; mọi chi tiết sản phẩm liên hệ | Liên hệ: 0123456789</p>
+    © 2026 QKELECTRONIC | Hotline: 09xx xxx xxx
 </footer>
+
+<script>
+const images = [
+"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80",
+"https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=1920&q=80",
+"https://images.unsplash.com/photo-1555617981-dac3880eac6c?auto=format&fit=crop&w=1920&q=80",
+"https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1920&q=80"
+];
+
+let currentIndex = 0;
+let showingBg1 = true;
+
+const bg1 = document.querySelector(".bg1");
+const bg2 = document.querySelector(".bg2");
+
+bg1.style.backgroundImage = `url('${images[0]}')`;
+bg1.style.opacity = 1;
+bg2.style.opacity = 0;
+
+function changeImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+
+    if (showingBg1) {
+        bg2.style.backgroundImage = `url('${images[currentIndex]}')`;
+        bg2.style.opacity = 1;
+        bg1.style.opacity = 0;
+    } else {
+        bg1.style.backgroundImage = `url('${images[currentIndex]}')`;
+        bg1.style.opacity = 1;
+        bg2.style.opacity = 0;
+    }
+
+    showingBg1 = !showingBg1;
+}
+
+setInterval(changeImage, 5000);
+</script>
+
 
 </body>
 </html>
