@@ -13,18 +13,26 @@
     font-family:Arial, sans-serif;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     background:#111;
     color:white;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 header{
     background:#000;
     padding:15px 50px;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:999;
 }
 
 .logo{
@@ -49,10 +57,11 @@ nav a:hover{
     color:#ff4d4d;
 }
 
-/* ===== BANNER APPLE FADE ===== */
+/* BANNER */
 .banner{
     position:relative;
     height:85vh;
+    margin-top:70px;
     overflow:hidden;
     display:flex;
     justify-content:center;
@@ -98,22 +107,9 @@ nav a:hover{
     font-size:18px;
 }
 
-.btn{
-    padding:12px 30px;
-    background:#ff4d4d;
-    color:white;
-    text-decoration:none;
-    border-radius:5px;
-    transition:0.3s;
-}
-
-.btn:hover{
-    background:#ff1a1a;
-}
-
-/* ===== PRODUCTS ===== */
+/* PRODUCTS */
 .products{
-    padding:60px 10%;
+    padding:80px 10%;
     text-align:center;
 }
 
@@ -151,34 +147,67 @@ nav a:hover{
 }
 
 .card p{
-    color:#ff4d4d;
+    color:#ee4d2d;
     font-weight:bold;
 }
 
-.card button{
+.buy-btn{
+    display:inline-block;
     margin-top:10px;
-    padding:8px 15px;
-    border:none;
-    background:#ff4d4d;
+    padding:10px 15px;
+    background:#ee4d2d;
     color:white;
-    cursor:pointer;
+    text-decoration:none;
     border-radius:5px;
+    font-weight:bold;
     transition:0.3s;
 }
 
-.card button:hover{
-    background:#ff1a1a;
+.buy-btn:hover{
+    background:#d73211;
 }
 
-/* ===== FOOTER ===== */
+/* SMART FARM */
+.smartfarm{
+    padding:80px 10%;
+    background:#181818;
+}
+
+.smartfarm-box{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:40px;
+    background:#222;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.6);
+}
+
+.smartfarm img{
+    width:100%;
+    border-radius:10px;
+}
+
+.zalo-btn{
+    display:inline-block;
+    padding:14px 30px;
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:bold;
+    margin-top:20px;
+}
+
+/* FOOTER */
 footer{
     background:#000;
     text-align:center;
     padding:20px;
-    margin-top:50px;
 }
 
-/* ===== RESPONSIVE ===== */
+/* RESPONSIVE */
 @media(max-width:768px){
     header{
         flex-direction:column;
@@ -189,6 +218,50 @@ footer{
         font-size:40px;
     }
 }
+/* DỊCH VỤ */
+.dichvu{
+    padding:80px 10%;
+    background:#141414;
+    text-align:center;
+}
+
+.dichvu h2{
+    margin-bottom:50px;
+    font-size:30px;
+}
+
+.dichvu-box{
+    display:flex;
+    flex-wrap:wrap;
+    gap:40px;
+    align-items:center;
+    justify-content:center;
+    background:#222;
+    padding:40px;
+    border-radius:15px;
+}
+
+.dichvu-text{
+    flex:1;
+    min-width:300px;
+    text-align:left;
+}
+
+.dichvu-text ul{
+    margin-top:20px;
+    line-height:1.8;
+}
+
+.dichvu-img{
+    flex:1;
+    min-width:300px;
+}
+
+.dichvu-img img{
+    width:100%;
+    border-radius:10px;
+}
+
 </style>
 </head>
 
@@ -199,9 +272,9 @@ footer{
     <nav>
         <ul>
             <li><a href="#">Trang chủ</a></li>
-            <li><a href="#">Sản phẩm</a></li>
-            <li><a href="#">Giỏ hàng</a></li>
-            <li><a href="#">Liên hệ</a></li>
+            <li><a href="#sanpham">Sản phẩm</a></li>
+<li><a href="#dichvu">Dịch vụ</a></li>
+<li><a href="https://zalo.me/yourlink" target="_blank">Liên hệ</a></li>
         </ul>
     </nav>
 </header>
@@ -215,48 +288,181 @@ footer{
         <h1>QKELECTRONIC</h1>
         <div class="line"></div>
         <p>Chuyên DIY Điện Tử - REPAIR - MUSIC - DISPLAY - PC - IoT</p>
-        <a href="#" class="btn">LIÊN HỆ</a>
     </div>
 </section>
 
 <!-- PRODUCTS -->
-<section class="products">
+<section class="products" id="sanpham">
     <h2>SẢN PHẨM NỔI BẬT</h2>
 
     <div class="product-grid">
+
+        <!-- 1 -->
         <div class="card">
-            <img src="https://via.placeholder.com/250">
-            <h3>ESP32 DevKit</h3>
-            <p>120.000đ</p>
-            <button>Thêm vào giỏ</button>
+            <img src="https://m.media-amazon.com/images/I/61ezFmp2wZL._AC_SL1001_.jpg">
+            <h3>ESP32 DevKit V1</h3>
+            <p>145.000đ</p>
+            <a href="https://s.shopee.vn/4VXe6lV05K" target="_blank" class="buy-btn">Mua trên Shopee</a>
         </div>
 
+        <!-- 2 -->
         <div class="card">
-            <img src="https://via.placeholder.com/250">
-            <h3>Module Relay 5V</h3>
-            <p>15.000đ</p>
-            <button>Thêm vào giỏ</button>
+            <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m1tf3ik4ayc3be">
+            <h3>Arduino Uno R3</h3>
+            <p>95.000đ</p>
+            <a href="https://s.shopee.vn/6VJDkWmbKO" target="_blank" class="buy-btn">Mua trên Shopee</a>
         </div>
 
+        <!-- 3 -->
         <div class="card">
-            <img src="https://via.placeholder.com/250">
-            <h3>Cảm biến DHT22</h3>
-            <p>85.000đ</p>
-            <button>Thêm vào giỏ</button>
+            <img src="https://file.thegioiic.com/upload/large/25854.jpg">
+            <h3>NESP32-CAM WiFi</h3>
+            <p>210.000đ</p>
+            <a href="https://s.shopee.vn/1gDxzgOkS6" target="_blank" class="buy-btn">Mua trên Shopee</a>
         </div>
+
+        <!-- 4 -->
+        <div class="card">
+            <img src="https://file.thegioiic.com/upload/large/42478.jpg">
+            <h3>Module Relay 5V 8 chanel</h3>
+            <p>145.000đ</p>
+            <a href="https://s.shopee.vn/1gE2XKaxq1" target="_blank" class="buy-btn">Mua trên Shopee</a>
+        </div>
+
+        <!-- 5 -->
+        <div class="card">
+            <img src="https://down-vn.img.susercontent.com/file/17ba719c462c4a7f29d1236a8dd24e19">
+            <h3>Tụ Audio ELNA 10000uf 100V / 15000UF 100V chất lượng cao đường kính tụ 35mm-KA10 | </h3>
+            <p>100.000đ</p>
+            <a href="https://s.shopee.vn/5q3bV2BITz" target="_blank" class="buy-btn">Mua trên Shopee</a>
+        </div>
+
+        <!-- 6 -->
+        <div class="card">
+            <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lwgxb9rq9wbf8b.webp">
+            <h3>DMẠCH LỌC NGUỒN 4 TỤ CÓ BẢO VỆ LOA - NGUỒN PRE TÍCH HỢP +-42,+-15 </h3>
+            <p>152.362đ</p>
+            <a href="https://s.shopee.vn/4VYDucCP2P" target="_blank" class="buy-btn">Mua trên Shopee</a>
+        </div>
+
+        <!-- 7 -->
+        <div class="card">
+            <img src="https://down-vn.img.susercontent.com/file/sg-11134201-23020-2r7yusdyhbnvdf.webp">
+            <h3>Bộ Chia Tần Số Cao 400W 2 Chiều 4-16 Ohm Cho Loa</h3>
+            <p>107.000₫</p>
+            <a href="https://s.shopee.vn/6Kzs6P6KhD" target="_blank" class="buy-btn">Mua trên Shopee</a>
+        </div>
+
+        <!-- 8 -->
+        <div class="card">
+            <img src="https://down-vn.img.susercontent.com/file/sg-11134201-23010-mrdksbw5c1lv9b.webp">
+            <h3>COMBO NÂN CẤP MẠCH CÔNG SUẤT TỪ 12 lên 18 SÒ 1200W</h3>
+            <p>992.486đ</p>
+            <a href="https://s.shopee.vn/20qswAd2tn" target="_blank" class="buy-btn">Mua trên Shopee</a>
+        </div>
+
+        <!-- 9 -->
+        <div class="card">
+            <img src="https://down-vn.img.susercontent.com/file/sg-11134201-7qvdm-ljku1pmd5is609.webp">
+            <h3>Mạch Công Suất 32 Sò Điện Áp Cao Ráp Sẵn Không Bảo Vệ - 1 Cặp</h3>
+            <p>1.250.000₫</p>
+            <a href="https://s.shopee.vn/AUpR3wbhOj" target="_blank" class="buy-btn">Mua trên Shopee</a>
+        </div>
+
+        <!-- 10 -->
+        <div class="card">
+            <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m0wpemnvtcmlb9.webp">
+            <h3>MCOMBO CÔNG SUẤT 36 SÒ DVA VÀ NGUỒN 8 TỤ ĐA NĂNG Bao gồm: công suất 36 sò 9tsb và nguồn 8 tụ đa năng dva</h3>
+            <p>850.000đ</p>
+            <a href="https://s.shopee.vn/8phD4eplHq" target="_blank" class="buy-btn">Mua trên Shopee</a>
+        </div>
+
     </div>
 </section>
 
+<!-- SMART FARM -->
+<section class="smartfarm">
+    <h2 style="text-align:center; margin-bottom:50px;">
+        ĐỒ ÁN MÔ HÌNH SMART FARM IoT
+    </h2>
+
+    <div class="smartfarm-box">
+
+        <div style="flex:1; min-width:300px;">
+            <img src="smartfarm.png">
+        </div>
+
+        <div style="flex:1; min-width:300px;">
+            <h3 style="font-size:28px;">Smart Farm IoT (ESP32 + Web + Firebase)</h3>
+
+            <p style="font-size:30px; color:#ff4d4d; font-weight:bold;">
+                6.500.000đ
+            </p>
+
+            <ul style="line-height:1.8;">
+                <li>✔ Điều khiển từ xa qua Web</li>
+                <li>✔ Auto / Manual bằng Radar</li>
+                <li>✔ Giám sát nhiệt độ, độ ẩm, ánh sáng</li>
+                <li>✔ Tự động tưới & phun sương</li>
+                <li>✔ Khung sắt mô hình thực tế</li>
+                <li>✔ Tặng kèm full code + tài liệu báo cáo</li>
+            </ul>
+
+           <a href="https://www.youtube.com/watch?v=G52w5tautgs" target="_blank">
+   <img src="https://img.youtube.com/vi/G52w5tautgs/hqdefault.jpg" width="100%">
+</a>
+
+            <a href="https://zalo.me/yourlink" target="_blank" class="zalo-btn">
+                Liên hệ đặt đồ án ZALO 0,9,02959941
+            </a>
+        </div>
+
+    </div>
+</section>
+<!-- DỊCH VỤ SỬA BOARD MẠCH MÁY CÔNG NGHIỆP -->
+<section class="dichvu" id="dichvu">
+
+    <h2>DỊCH VỤ SỬA MÁY CÔNG NGHIỆP</h2>
+
+    <div class="dichvu-box">
+
+        <div class="dichvu-text">
+            <h3>Chuyên sửa chữa linh kiện thiết bị công nghiệp STM</h3>
+
+            <ul>
+                <li>✔ Sửa biến tần, PLC, board điều khiển,.../li>
+                <li>✔ Sửa nguồn công suất, driver motor, encoder,...</li>
+                <li>✔ máy đóng gói, máy tự động,...</li>
+                <li>✔ Kiểm tra & khắc phục lỗi tại xưởng</li>
+                <li>✔ Nhận thiết kế – nâng cấp hệ thống điều khiển</li>
+            </ul>
+
+            <p style="margin-top:20px; font-weight:bold; color:#ff4d4d;">
+                Hỗ trợ nhanh – Giá hợp lý – 
+            </p>
+
+            <a href="https://zalo.me/yourlink" target="_blank" class="zalo-btn">
+                Liên hệ kỹ thuật ZALO 09029599,4,1 
+            </a>
+        </div>
+
+        <div class="dichvu-img">
+            <img src="https://shdc.com.vn/wp-content/uploads/gia-cong-smt-3-may-gan-linh-kien.jpg">
+        </div>
+
+    </div>
+
+</section>
 <footer>
-    © 2026 QKELECTRONIC | Hotline: 09xx xxx xxx
+    © 2026 QKELECTRONIC
 </footer>
 
 <script>
 const images = [
-"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80",
-"https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=1920&q=80",
-"https://images.unsplash.com/photo-1555617981-dac3880eac6c?auto=format&fit=crop&w=1920&q=80",
-"https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1920&q=80"
+"https://emergingtechs.org/wp-content/uploads/2025/08/diy-electronics-projects-1024x684.jpg",
+"https://images.stockcake.com/public/9/9/2/9926cb19-ac60-4de4-9974-d54d729e0563_large/precision-electronic-work-stockcake.jpg",
+"https://picx.zhimg.com/v2-6b6e54518be2789974bb6625d45365b7_1440w.jpg",
+"https://bizweb.dktcdn.net/thumb/1024x1024/100/257/211/files/z6842203631390-18e8bfec385e3156b146ece9871db2d5.jpg?v=1753496393344"
 ];
 
 let currentIndex = 0;
@@ -287,7 +493,6 @@ function changeImage() {
 
 setInterval(changeImage, 5000);
 </script>
-
 
 </body>
 </html>
